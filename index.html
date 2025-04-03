@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walid Ahmed Nibir's Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #333;
+            --secondary-color: #444;
+            --bg-color: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+        }
+
+        .navbar {
+            background-color: var(--primary-color) !important;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+            background-color: rgb(48, 42, 42);
+            padding-top: 80px;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border: 5px solid white;
+        }
+
+        .about-section {
+            background: white;
+            transition: transform 0.3s ease;
+            margin-bottom: 5px;
+        }
+
+        .about-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInDown 1.5s;
+        }
+
+        @media (max-width: 768px) {
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        .social-profile-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .social-profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            padding: 10px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icons a img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons .linkedin:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4);
+        }
+
+        .social-icons .discord:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(114, 137, 218, 0.4);
+        }
+
+        .social-icons .whatsapp:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .social-icons a:hover img {
+            transform: scale(1.1);
+        }
+
+        #discord1 {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Project</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center justify-content-center fade-in">
+                <div class="col-md-5 text-center mb-4 mb-md-0">
+                    <img src="Nibir-Profile.jpg" alt="Walid Ahmed Nibir" class="profile-img rounded-circle mb-3">
+                    <h1 class="display-4 text-white">Walid Ahmed Nibir</h1>
+                    <p class="lead text-white">Textile Engineer and Designer</p>
+                </div>
+                <div class="col-md-7">
+                    <div class="about-section p-4 rounded shadow">
+                        <h2 class="display-6 mb-4">About Me</h2>
+                        <div class="text-dark">
+                            <p>I am Walid Ahmed Nibir, a dedicated and ambitious undergraduate student pursuing a BSc in
+                                Textile
+                                Engineering at Pabna Textile Engineering College. With a passion for innovation and
+                                problem-solving, I continuously
+                                strive to enhance my skills in textile technology, digital marketing, and professional
+                                development.<br>
+                                Beyond academics, I am actively engaged in leadership and social development. As an
+                                executive member
+                                of the P-Tech Career Club and Sports Club, I contribute to organizing events and
+                                fostering a collaborative
+                                environment. Additionally, my role in Bangladesh for Volunteers allows me to create
+                                meaningful social impact through community
+                                service.<br>
+                                My technical expertise spans CLO 3D Design, B2B Lead Generation, SEO, MS Office Suite,
+                                and Data Entry, enabling me to
+                                work efficiently in diverse professional settings. I have also participated in the
+                                Textile Talent Hunt and completed the
+                                National Skill Standard Basic Course, reinforcing my industry knowledge.<br>
+                                Currently, I am enrolled in the Aspire Leadership Program 2025, where I am honing my
+                                leadership, communication, and
+                                professional skills to prepare for future challenges.<br>
+                                I am eager to connect with like-minded professionals and explore opportunities that
+                                align with my aspirations in the
+                                textile industry, digital marketing, and leadership development.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">My Projects</h2>
+            <div class="row g-4">
+                <!-- Project cards with Bootstrap classes -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card h-100 shadow">
+                        <div class="card-body">
+                            <h3 class="card-title">Project 1</h3>
+                            <p class="card-text">Continuous...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card h-100 shadow">
+                        <div class="card-body">
+                            <h3 class="card-title">Project 2</h3>
+                            <p class="card-text">Continuous...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h2 class="text-center mb-4">Contact Me</h2>
+                            <form class="contact-form" onsubmit="sendMail(event)">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" class="form-control" id="subject" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-dark w-100">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Profile Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="social-profile-card text-center">
+                        <h2 class="display-6 mb-3">Let's Connect</h2>
+                        <p class="text-muted mb-4">Feel free to reach out to me on any of these platforms</p>
+                        <div class="social-icons">
+                            <a href="https://www.linkedin.com/in/walid-ahmed-nibir-466172229?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "
+                                class="linkedin" target="_blank" title="LinkedIn">
+                                <img src="linkedin.png" alt="LinkedIn">
+                            </a>
+                            <a href="https://discord.gg/bdPKCmkA" class="discord" target="_blank" title="Discord">
+                                <img src="discord.png" alt="Discord" id="discord1">
+                            </a>
+                            <a href="https://wa.me/+880 1795-901029" class="whatsapp" target="_blank"
+                                title="+880 1795-901029">
+                                <img src="whatsapp.png" alt="WhatsApp">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Your existing scripts with EmailJS and animations -->
+    <script>
+        (function () {
+            emailjs.init({
+                publicKey: "nQCGzO-S5h4eqaJCI",
+            });
+        })();
+
+        // Smooth scrolling
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const section = document.querySelector(this.getAttribute('href'));
+                section.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Project cards animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        function sendMail(e) {
+            e.preventDefault(); // Prevent form from submitting normally
+
+            const params = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                subject: document.getElementById("subject").value,
+                message: document.getElementById("message").value,
+            };
+
+            emailjs.send("service_i96m3ab", "template_fpykr6o", params)
+                .then(function (response) {
+                    alert("Message sent successfully!");
+                    document.querySelector(".contact-form").reset(); // Clear the form
+                }, function (error) {
+                    console.error("Failed to send message:", error);
+                    alert("Failed to send message. Please try again.");
+                });
+        }
+    </script>
+</body>
+
+</html>
+````
